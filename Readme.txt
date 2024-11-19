@@ -1,5 +1,5 @@
 ###############################################
-This folder include the code to plot the main figures in the paper "Interannual Variability of Tropical Cyclone Landfalls in the Eastern North Pacific: Environmental Drivers and Implications"
+This repository include the code to plot the main figures in the paper "Interannual Variability of Tropical Cyclone Landfalls in the Eastern North Pacific: Environmental Drivers and Implications"
 ################################################
 
 Figures 1, 3 and 4 are done in Python and could be plotted using the Jupyter notebook named: "ENP_TC_Landfall_Figures.ipynb"
