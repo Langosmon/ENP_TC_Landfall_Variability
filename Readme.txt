@@ -7,7 +7,7 @@ Figures 1, 3 and 4 are done in Python and could be plotted using the Jupyter not
 Figure 2 was made in R and could be plotted using the Rstudio Rmd file named "Figure2_Rcode.Rmd"
 
 ##############################################
-The final data to be plotted is included under the subfolder named "data_plots" which include the following:
+The final processed data to be plotted is included in the "releases" section of this repository in a ZIP file named "data_plots" which includes the following:
 
 #####  fig1  #####
 
