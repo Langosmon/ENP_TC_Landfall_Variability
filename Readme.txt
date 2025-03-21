@@ -1,74 +1,91 @@
 ###############################################
-This repository include the code to plot the main figures in the paper "Interannual Variability of Tropical Cyclone Landfalls in the Eastern North Pacific: Environmental Drivers and Implications"
+
+This folder includes the code to plot the main figures in the paper "Interannual Variability of Tropical Cyclone Landfalls in the Eastern North Pacific: Environmental Drivers and Implications"
+
 ################################################
 
-Figures 1, 3 and 4 are done in Python and could be plotted using the Jupyter notebook named: "ENP_TC_Landfall_Figures.ipynb"
+Figures 1, 2, 3 and 4 are done in Python and could be plotted using the Jupyter notebook named: "ENP_TC_Landfall_Figures.ipynb"
 
-Figure 2 was made in R and could be plotted using the Rstudio Rmd file named "Figure2_Rcode.Rmd"
+The Python environment employed by the authors utilizes the following versions of Python and its packages:
+Python version: 3.10.6 (main, Oct 24 2022, 16:07:47) [GCC 11.2.0]
+xarray version: 2023.8.0
+pandas version: 1.4.4
+geopandas version: 0.14.0
+numpy version: 1.23.3
+matplotlib version: 3.5.3
+seaborn version: 0.12.2
+cmocean version: 2.0
 
-##############################################
-The final processed data to be plotted is included in the "releases" section of this repository in a ZIP file named "data_plots" which includes the following:
+################################################
 
-#####  fig1  #####
-
-"df_melted_data.csv" is a pandas data frame that includes the monthly mean genesis needed for the seaborn package for plotting the climatology line in Fig 1b.
-"df_total_landfall_data.csv" is a pandas data frame that includes the monthly mean landfalls needed for the seaborn package for plotting the climatology line in Fig 1d.
-"ep_filtered_data.nc" is a NetCDF array of the IBTracs used after the filter described in the main text (all genesis and landfalls are derived from this one).
-"gen_monthly_data.txt" is a matrix that counts the number of genesis storm during the period of analysis, with dimensions (years,months).
-"hlf_years.txt" has the list of high landfall years.
-"hplf_years.txt" has the list of high landfall probability years.
-"lf_yearly_data.txt" has the number of landfalls per year during the period of analysis.
-"llf_years.txt" has the list of low landfall years.
-"lplf_years.txt" has the list of low landfall probability years.
-"monthly_landfalls_full_data.csv" is pandas data frame that include the monthly landfalls for high and low landfall years (derived from df_total_landfall_data)
-
-#####  fig2  #####
-
-"mexico_states.json" is the geographic file with information about Mexican states for plotting.
-"central_america_states.geojson" is the geographic file with information of all central America states for plotting.
-"landfall_points_hlf.geojson" has the latitude and longitude points of the landfall locations from IBTrACS (ep_filtered_data above) for high landfall years.
-"landfall_points_llf.geojson" has the latitude and longitude points of the landfall locations from IBTrACS (ep_filtered_data above) for low landfall years.
-"muns_hlf_data.geojson" is a geographic table with the count of storms per second-level administrative divisions after using the parametric wind model described in the main text for the high landfall years.
-"muns_llf_data.geojson" is a geographic table with the count of storms per second-level administrative divisions after using the parametric wind model described in the main text for the low landfall years.
-
-#####  fig3  #####
-
-"decomposition_data.nc" is a NetCDF file after containing the box analysis (landfall probabilities anomalies, genesis anomalies, and residual term) described in the main text for the 4 months revised in the manuscript.
-"gen_lats_hlf.npz" is a numpy file listing all the latitude genesis locations for the 4 months analyzed in the manuscript during high landfall years.
-"gen_lats_llf.npz" is a numpy file listing all the latitude genesis locations for the 4 months analyzed in the manuscript during low landfall years.
-"gen_lons_hlf.npz" is a numpy file listing all the longitude genesis locations for the 4 months analyzed in the manuscript during high landfall years.
-"gen_lons_llf.npz" is a numpy file listing all the longitude genesis locations for the 4 months analyzed in the manuscript during low landfall years.
-"pprime_term.npz" is a numpy file listing all the matrices of numpy 2d histrograms for the landfalls probabilities anomalies for the 4 months analyzed in the manuscript.
-"U_hlf_data.nc" has the zonal component of the steering wind (as described in the main text) for the high landfall years.
-"U_llf_data.nc" has the zonal component of the steering wind (as described in the main text) for the low landfall years.
-"V_hlf_data.nc" has the meridional component of the steering wind (as described in the main text) for the high landfall years.
-"V_llf_data.nc" has the meridional component of the steering wind (as described in the main text) for the low landfall years.
-"x_meshgrid.txt" has the horizontal grid spacing for the 5x5 box analysis needed for plotting.
-"y_meshgrid.txt" has the vertical grid spacing for the 5x5 box analysis needed for plotting.
-
-#####  fig4  #####
-
-"dns.npy" is a numpy array with dimensions (longitude,latitude) on a 0.25 x 0.25 degree resolution of the dns (dynamical seasonality index, see main text) for the entire globe.
-"precip_hlf_data.nc" NetCDF array with precipitation data during high landfall years.
-"precip_llf_data.nc" NetCDF array with precipitation data during low landfall years.
-"u_box_data.nc" NetCDF array with the zonal component of the wind inside the box of high landfall probabilities anomalies (red region, see main text)
-"u_box_hlf_data.nc" NetCDF array with the zonal component of the wind inside the box of high landfall probabilities anomalies (red region, see main text), only during high landfall years.
-"u_box_llf_data.nc" NetCDF array with the zonal component of the wind inside the box of high landfall probabilities anomalies (red region, see main text), only during low landfall years.
-"u_cllj_data.nc" NetCDF array with the zonal component of the wind inside the box of the Caribbean low level jet (CLLJ).
-"u_cllj_hlf_data.nc" NetCDF array with the zonal component of the wind inside the box of CLLJ only during high landfall years.
-"u_cllj_llf_data.nc" NetCDF array with the zonal component of the wind inside the box of CLLJ only during low landfall years.
-"u_enp_data.nc" zonal wind at 850 and 250hPa, used for plotting fig 3a.
-"v_enp_data.nc" meridional wind at 850 and 250hPa, used for plotting fig 3a.
-"us_hlf_data.nc" NetCDF array with the zonal steering winds during the high landfall years for the hovmoller diagram.
-"us_llf_data.nc" NetCDF array with the zonal steering winds during the low landfall years for the hovmoller diagram.
-"vs_hlf_data.nc" NetCDF array with the meridional steering winds during the high landfall years for the Hovmoller diagram.
-"vs_llf_data.nc" NetCDF array with the meridional steering winds during the low landfall years for the Hovmoller diagram.
+The Post Processed data needed to plot the figures is the following:
 
 
+############ Figure 1 ##########################
+
+topography_data.nc: NetCDF file from ERA5 containing the topography of the basin (calculated using Geopotential). Coordinates longitude and latitude.
+
+ep_filtered.nc: Processed IBTrACS for the Eastern North Pacific. Coordinate: index. Variables: SID (Storm ID), NAME, NATURE, ISO_TIME, LAT, LON, DIST2LAND, LANDFALL, USA_STATUS, USA_WIND, USA_PRES, USA_R34_NE, USA_R34_WE, USA_R34_NW, USA_R34_SW, STRONGEST_LANDFALL. The only new variable different from IBTrACS is the strongest landfall, a Boolean variable to describe the strongest landfall (when the value is 1) for storms that made multiple landfalls.
+ 
+hlf_years.txt: list of high landfall years. The numbers are years after 1980; for example, 1 means 1981
+
+llf_years.txt: list of low landfall years. The numbers are years after 1980; for example, 0 means 1980
+
+monthly_landfalls.csv: Table with monthly landfalls for each year from 1980 to 2024.
+
+monthly_genesis.csv: table with monthly genesis for each year from 1980 to 2024.
 
 
+############ Figure 2 ##########################
+
+central_america_states.geojson: Polygon data of the second-level administrative regions of Central America
+
+mexico_states.json: Polygon data of the second-level administrative regions of Mexico. Including a column with the ranking based on the vulnerability index discussed in the main text.
+
+muns_hlf_data.geojson: storm count of all second-level administrative regions affected by at least tropical storm intensity winds for the high landfall years. Obtained running the storm wind model described in the main text.
+
+landfall_points_hlf.geojson: landfall location of all the storms during high landfall years.
+
+muns_llf_data.geojson: storm count of all second-level administrative regions affected by at least tropical storm intensity winds for the low landfall years. Obtained running the storm wind model described in the main text.
+
+landfall_points_llf.geojson: landfall location of all the storms during low landfall years.
 
 
+############ Figure 3 ##########################
+
+fig3a.csv: Table containing the value of the decomposition for June, August, September, and October. the DIFF column is the differences in landfalls for a given month between high and low landfall years.
+
+fig3a_bserror.csv: Error for each of the terms of the decomposition obtained running a 1000 steps bootstrapping to the decomposition.
+
+u_hlf.nc: NetCDF file containing the zonal winds during high landfall probability years in the Eastern North Pacific. The coordinates are time, latitude, and longitude.
+
+v_hlf.nc: NetCDF file containing the meridional winds during high landfall probability years in the Eastern North Pacific. The coordinates are time, latitude, and longitude.
+
+
+u_llf.nc: NetCDF file containing the zonal winds during low landfall probability years in the Eastern North Pacific. The coordinates are time, latitude, and longitude.
+
+
+v_llf.nc: NetCDF file containing the meridional winds during low landfall probability years in the Eastern North Pacific. The coordinates are time, latitude, and longitude.
+
+
+pprime_term.nc: NetCDF file containing the landfall probability anomaly term for June, August, September, and October. The coordinates are month, x (longitude), and y (latitude).
+
+mean_lat_lon.csv: Table containing the mean genesis location (latitude, and longitude) for high and low landfall probability years.
+
+
+############ Figure 4 ##########################
+
+u_july_climo.nc: NetCDF file containing the climatological zonal winds during July for the Eastern North Pacific. The coordinates are latitude and longitude.
+
+v_july_climo.nc: NetCDF file containing the climatological meridional winds during July for the Eastern North Pacific. The coordinates are latitude and longitude.
+
+dns.txt: Climatological Dynamical Seasonality Index (DNS, see main text). The size of the array is 201 x 481 (latitude x longitude), spanning from 200W to 320W and -10S to 40N.
+
+tp_hov_hlf.nc: NetCDF file containing the mean precipitation rate during high landfall years in the Monsoonal region (Green Box Figure 4a of main text). The coordinates are latitude and month.
+
+tp_hov_llf.nc: NetCDF file containing the mean precipitation rate during low landfall years in the Monsoonal region (Green Box Figure 4a of main text). The coordinates are latitude and month.
+
+fig4d_data.csv: Table containing the mean zonal winds for the Caribbean Low-Level Jet (black box) and the red box region of Figure 4a of main text.
 
 
 
