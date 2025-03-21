@@ -18,8 +18,13 @@ cmocean version: 2.0
 
 ################################################
 
-The Post Processed data needed to plot the figures is the following:
+Original Data sources (IBTrACS and ERA5) are from:
 
+Gahtan, J., Knapp, K. R., Schreck, C. J. I.m Diamon, H. J., Kossin, J. P., & Kruk, M. C. (2024). International Best Track Archive for Climate Stewardship (IBTrACS) project, version 4.01 EP supset [Dataset]. NOAA National Centers for Environmental Information. (Downloaded XCV format on 2025-02-20) doi: https://doi.org/10.25921/82ty-9e16
+
+European Centre for Medium-Range Weather Forecasts (ECMWF). (2019). ERA5 reanalysis(monthly mean 0.25 degree latitude-longitude grid)(updated yearly) [Dataset]. Boulder CO: Research Data Archive at the National Center for Atmospheric Research, Computational and Information Systems Laboratory. doi: https://doi.org/10.5065/P8GT-0R61
+
+The Post Processed data needed to plot the figures is the following:
 
 ############ Figure 1 ##########################
 
